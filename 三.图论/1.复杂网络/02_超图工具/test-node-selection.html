@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点选择功能测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-step {
+            margin: 15px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .test-step h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .test-step ol {
+            margin: 10px 0;
+        }
+        .test-step li {
+            margin: 5px 0;
+        }
+        .app-link {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .app-link:hover {
+            background-color: #2563eb;
+        }
+        .console-note {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 节点选择功能测试指南</h1>
+        
+        <div class="console-note">
+            <strong>📝 注意：</strong> 在测试过程中，请打开浏览器的开发者工具（F12），查看控制台输出的调试信息。
+        </div>
+
+        <a href="http://localhost:5173/" target="_blank" class="app-link">🚀 打开应用进行测试</a>
+
+        <div class="test-step">
+            <h3>📋 测试步骤</h3>
+            <ol>
+                <li><strong>进入绘制页面：</strong> 点击应用中的"绘制"按钮</li>
+                <li><strong>添加节点：</strong> 
+                    <ul>
+                        <li>点击工具栏中的"添加节点"按钮</li>
+                        <li>在画布上点击几个位置创建节点</li>
+                    </ul>
+                </li>
+                <li><strong>切换到选择工具：</strong> 点击工具栏中的"选择"按钮</li>
+                <li><strong>测试节点选择：</strong>
+                    <ul>
+                        <li>点击画布上的任意节点</li>
+                        <li>观察右侧属性面板是否出现"节点属性"区域</li>
+                        <li>检查控制台是否有相关调试信息</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="test-step">
+            <h3>🔍 预期结果</h3>
+            <ul>
+                <li><strong>控制台输出：</strong> 应该看到类似以下的调试信息：
+                    <pre>Canvas - Node clicked: [节点ID] tool: select
+Canvas - Calling selectNode with: [节点ID]
+Store - selectNode called with: [节点ID] multiSelect: false
+Store - single select, new selectedNodes: [[节点ID]]
+PropertyPanel - selectedNodes: [[节点ID]]
+PropertyPanel - selectedNodeObjects: [节点对象]</pre>
+                </li>
+                <li><strong>UI变化：</strong>
+                    <ul>
+                        <li>被选中的节点应该有黄色边框高亮</li>
+                        <li>右侧属性面板应该显示"节点属性"区域</li>
+                        <li>属性面板中应该显示节点的标签、颜色、大小等编辑选项</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="test-step">
+            <h3>🐛 问题排查</h3>
+            <p>如果节点选择功能不正常，请检查：</p>
+            <ul>
+                <li><strong>工具状态：</strong> 确保当前选择的是"选择"工具，而不是其他工具</li>
+                <li><strong>控制台错误：</strong> 查看是否有JavaScript错误</li>
+                <li><strong>调试信息：</strong> 检查控制台中的调试输出，确认事件是否正确触发</li>
+                <li><strong>状态同步：</strong> 确认selectedNodes状态是否正确更新</li>
+            </ul>
+        </div>
+
+        <div class="test-step">
+            <h3>✅ 测试完成后</h3>
+            <p>测试完成后，请报告以下信息：</p>
+            <ul>
+                <li>节点选择功能是否正常工作</li>
+                <li>属性面板是否正确显示</li>
+                <li>控制台中的调试信息内容</li>
+                <li>遇到的任何问题或异常行为</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
